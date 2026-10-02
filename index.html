@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Carrossel em HTML e CSS</title>
+
+    <style>
+
+        /* =========================
+           PALETA DE CORES
+        ========================== */
+
+        :root {
+          --preto: #0b0b0b;
+          --preto-claro: #151515;
+          --vermelho: #c1121f;
+          --dourado: #f4c95d;
+          --branco: #ffffff;
+          --cinza: #cccccc;
+        }
+
+
+
+        /* =========================
+           CONFIGURAÇÕES GERAIS
+        ========================== */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--preto);
+            color: var(--branco);
+        }
+
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        header {
+            background-color: var(--preto-claro);
+            color: var(--branco);
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        header h1 {
+            margin-bottom: 10px;
+            color: var(--dourado);
+            font-size: 42px;
+        }
+
+        header p {
+          color: var(--cinza);
+          font-size: 18px;
+        }
+
+
+
+        /* =========================
+           MAIN
+        ========================== */
+
+        main {
+            width: 90%;
+            max-width: 1000px;
+
+            margin: 40px auto;
+        }
+
+        main h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: var(--dourado);
+            font-size: 30px;
+        }
+
+
+        /* =========================
+           CARROSSEL
+        ========================== */
+
+        .carrossel {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            border: 5px solid var(--vermelho);
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+        }
+
+
+        /* =========================
+           CADA SLIDE
+        ========================== */
+
+        .slide {
+            width: 100%;
+            min-width: 100%;
+
+            flex-shrink: 0;
+
+            scroll-snap-align: start;
+
+            background-color: var(--preto-claro);
+        }
+
+
+        /* =========================
+           IMAGEM
+        ========================== */
+
+        .slide img {
+            width: 100%;
+            height: 600px;
+            object-fit: contain;
+            display: block;
+            background-color: var(--preto);
+        }
+
+
+
+        /* =========================
+           TEXTO DA IMAGEM
+        ========================== */
+
+        .slide figcaption {
+            background-color: var(--preto-claro);
+            color: var(--branco);
+            text-align: center;
+            padding: 25px;
+        }
+
+        .slide h3 {
+            color: var(--dourado);
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .slide .genero {
+            color: var(--vermelho);
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .slide .sinopse {
+            color: var(--cinza);
+            font-size: 17px;
+            line-height: 1.5;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+          background-color: var(--preto-claro);
+          color: var(--cinza);
+          text-align: center;
+          padding: 25px;
+          margin-top: 40px;
+        }
+
+
+
+        /* =========================
+           RESPONSIVIDADE
+        ========================== */
+
+        @media (max-width: 700px) {
+
+            .slide img {
+                height: 300px;
+            }
+
+            .slide figcaption {
+                font-size: 16px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <header>
+
+        <h1>Universo dos Filmes</h1>
+
+        <p>Conheça filmes de diferentes gêneros e descubra novas histórias para assistir.</p>
+
+    </header>
+
+
+    <main>
+
+        <section>
+
+            <h2>Filmes em Destaque</h2>
+
+
+            <div class="carrossel">
+
+
+                <figure class="slide">
+
+                    <img
+                        src="https://uploads.onecompiler.io/44qrrc5qp/1790965022082/interestelar.jpg"
+                        alt="Pôster do filme Interestelar"
+                    >
+
+                    <figcaption>
+                      <h3>Interestelar</h3>
+
+                      <p class="genero">Ficção científica</p>
+
+                      <p class="sinopse">Em um futuro em que a Terra enfrenta condições cada vez mais difíceis para a sobrevivência, um grupo de astronautas parte em uma missão pelo espaço em busca de um novo lar para a humanidade.</p>
+                    </figcaption>
+
+                </figure>
+
+
+                <figure class="slide">
+
+                    <img
+                        src="https://uploads.onecompiler.io/44qrrc5qp/1790965625686/jogosvozares.jpg"
+                        alt="Pôster do filme Jogos Vorazes"
+                    >
+
+                    <figcaption>
+                      <h3>Jogos Vorazes</h3>
+
+                      <p class="genero">Ação</p>
+
+                      <p class="sinopse">Em uma sociedade dividida e controlada pelo medo, Katniss Everdeen é escolhida para participar dos Jogos Vorazes, uma competição em que precisa lutar pela própria sobrevivência.</p>
+                    </figcaption>
+
+                </figure>
+
+
+                <figure class="slide">
+
+                    <img
+                        src="https://uploads.onecompiler.io/44qrrc5qp/1790965861941/omeninodopijamalistrado.jpg"
+                        alt="Pôster do filme O Menino do Pijama Listrado"
+                    >
+
+                    <figcaption>
+                      <h3>O Menino do Pijama Listrado</h3>
+
+                      <p class="genero">Drama histórico</p>
+
+                      <p class="sinopse">Durante a Segunda Guerra Mundial, Bruno, filho de um oficial nazista, desenvolve uma amizade com Shmuel, um garoto que vive do outro lado da cerca de um campo de concentração. A amizade entre os dois faz Bruno descobrir uma realidade que, até então, estava escondida dele.</p>
+                    </figcaption>
+
+                </figure>
+
+
+                <figure class="slide">
+
+                    <img
+                        src="https://uploads.onecompiler.io/44qrrc5qp/1790966044988/aviagemdechihiro.webp"
+                        alt="Pôster do filme A Viagem de Chihiro"
+                    >
+
+                    <figcaption>
+                        <h3>A Viagem de Chihiro</h3>
+
+                        <p class="genero">Fantasia</p>
+
+                        <p class="sinopse">Ao se mudar com os pais, Chihiro acaba entrando em um mundo habitado por espíritos e criaturas mágicas. Para encontrar uma maneira de voltar para casa, ela precisará enfrentar desafios e descobrir sua própria coragem.</p>
+                    </figcaption>
+
+                </figure>
+
+
+                <figure class="slide">
+
+                    <img
+                        src="https://uploads.onecompiler.io/44qrrc5qp/1790966195103/asbranquelas.jpg"
+                        alt="Pôster do filme As Branquelas"
+                    >
+
+                    <figcaption>
+                        <h3>As Branquelas</h3>
+
+                        <p class="genero">Comédia</p>
+
+                        <p class="sinopse">Após uma missão dar errado, dois agentes do FBI precisam se disfarçar como duas socialites para protegê-las. O plano, porém, coloca os agentes em situações cada vez mais inesperadas e divertidas.</p>
+                    </figcaption>
+
+                </figure>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>Universo dos Filmes &copy; 2026</p>
+
+    </footer>
+
+</body>
+
+</html>
